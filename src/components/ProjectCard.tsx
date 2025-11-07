@@ -18,7 +18,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, imageUrl, imageAlt }) 
         />
       </div>
       <div className="p-6 relative">
-        <h3 className="text-foreground text-xl font-bold uppercase tracking-wide group-hover:text-primary transition-colors">
+        <h3 className="text-foreground text-xl font-bold tracking-wide group-hover:text-primary transition-colors">
           {title}
         </h3>
       </div>

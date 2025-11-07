@@ -25,16 +25,16 @@ const Hero = () => {
       </div>
       
       <div className="max-w-4xl text-center animate-in" style={{ animationDelay: '0.1s' }}>
-        <h1 className="text-foreground text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 text-balance">
+        <h1 className="text-foreground text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-6 text-balance">
           My Name is
-          <span className="block bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+          <span className="gradient-text block bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
             Bennett Feigenbaum
           </span>
         </h1>
       </div>
       
       <div className="max-w-2xl text-center animate-in mb-12 mt" style={{ animationDelay: '0.2s' }}>
-        <p className="text-muted-foreground text-lg md:text-xl leading-relaxed">
+        <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
           I'm a multifaceted developer with experience in organizational,
           startup, and nonprofit work environments. My background spans roles
           in UX design, web development, data analytics, and marketing, where
@@ -46,13 +46,13 @@ const Hero = () => {
       <div className="flex flex-wrap justify-center gap-4 animate-in" style={{ animationDelay: '0.3s' }}>
         <button
           onClick={handleGetInTouch}
-          className="px-8 py-4 rounded-full bg-primary text-primary-foreground font-semibold text-lg hover:scale-105 hover:shadow-lg transition-all duration-300"
+          className="px-8 py-4 rounded-full bg-primary text-primary-foreground font-semibold text-base hover:scale-105 hover:shadow-lg transition-all duration-300"
         >
           Get In Touch
         </button>
         <button
           onClick={handleDownloadCV}
-          className="px-8 py-4 rounded-full border-2 border-primary bg-transparent text-foreground font-semibold text-lg hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all duration-300"
+          className="px-8 py-4 rounded-full border-2 border-primary bg-transparent text-foreground font-semibold text-base hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all duration-300"
         >
           Download CV
         </button>

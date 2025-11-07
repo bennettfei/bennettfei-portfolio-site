@@ -46,7 +46,7 @@ const Experience = () => {
   return (
     <section id="experience" className="w-full px-6 md:px-12 lg:px-24 py-24 max-w-7xl mx-auto">
       <div className="mb-16">
-        <h2 className="text-4xl md:text-5xl font-extrabold uppercase text-foreground tracking-tight mb-4">
+        <h2 className="gradient-text text-4xl md:text-5xl font-extrabold uppercase text-foreground tracking-tight mb-4">
           Professional Experience
         </h2>
         <div className="w-20 h-1 bg-primary rounded-full" />

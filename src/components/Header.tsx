@@ -12,7 +12,7 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 h-20 mb-24">
+    <header className="fixed top-0 left-0 right-0 z-50 h-20 mb">
       <div className="w-full h-full bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-lg" />
       
       <div className="absolute inset-0 flex items-center justify-between px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
