@@ -50,12 +50,14 @@ const Hero = () => {
         >
           Get In Touch
         </button>
-        <button
+        {/*
+          <button
           onClick={handleDownloadCV}
           className="px-8 py-4 rounded-full border-2 border-primary bg-transparent text-foreground font-semibold text-base hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all duration-300"
         >
           Download CV
         </button>
+       */}
       </div>
     </section>
   );
