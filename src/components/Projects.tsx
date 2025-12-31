@@ -1,31 +1,50 @@
 import React from 'react';
 import ProjectCard from './ProjectCard';
 
+import airFranceImg from '../assets/projects/airfrance.png';
+import acmWebsiteImg from '../assets/projects/acm-website.png';
+import officerDbImg from '../assets/projects/officer-db.png';
+//import microsoftAdImg from '../assets/projects/microsoft-ad.png';
+import utdGradesImg from '../assets/projects/utd-grades.png';
+import uxperienceImg from '../assets/projects/uxperience.png';
+
 const Projects = () => {
   const projects = [
     {
-      slug: "uxperience-echoes",
-      title: "UXPerience: Echoes of Tomorrow",
-      imageUrl: "https://api.builder.io/api/v1/image/assets/TEMP/42a1cc8caee30ad1ee43bc5b706781607e88b62a?width=780",
-      imageAlt: "UXPerience: Echoes of tomorrow project thumbnail"
+      slug: "airfrance-sem",
+      title: "AirFrance SEM Case Study",
+      image: airFranceImg,
+      imageAlt: "AirFrance SEM case study thumbnail"
     },
     {
       slug: "acm-website",
       title: "ACM Website",
-      imageUrl: "https://api.builder.io/api/v1/image/assets/TEMP/6b4f2bc8bb38809625a79d97392d889366e7e2a8?width=780",
+      image: acmWebsiteImg,
       imageAlt: "ACM Website project thumbnail"
     },
     {
       slug: "acm-officer-database",
       title: "ACM Officer Database",
-      imageUrl: "https://i.postimg.cc/QMGrwyVp/project-thumbnail-1.png",
+      image: officerDbImg,
       imageAlt: "ACM Officer database project thumbnail"
     },
+    /*{
+      slug: "microsoft-ad",
+      title: "Microsoft Server Active Directory",
+      image: microsoftAdImg,
+      imageAlt: "Microsoft Active Directory project thumbnail"
+    },*/
     {
       slug: "utd-grades",
       title: "UTD Grades",
-      imageUrl: "https://api.builder.io/api/v1/image/assets/TEMP/38d4dc3272b5249a2d0adc25dd9a993a8e0c526e?width=780",
+      image: utdGradesImg,
       imageAlt: "UTD Grades project thumbnail"
+    },
+    {
+      slug: "uxperience-echoes",
+      title: "UXPerience: Echoes of Tomorrow",
+      image: uxperienceImg,
+      imageAlt: "UXPerience project thumbnail"
     }
   ];
 
@@ -44,7 +63,7 @@ const Projects = () => {
             key={index}
             slug={project.slug}
             title={project.title}
-            imageUrl={project.imageUrl}
+            image={project.image}
             imageAlt={project.imageAlt}
           />
         ))}
