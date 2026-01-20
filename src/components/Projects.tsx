@@ -20,7 +20,8 @@ const Projects = () => {
       slug: "acm-website",
       title: "ACM Website",
       image: acmWebsiteImg,
-      imageAlt: "ACM Website project thumbnail"
+      imageAlt: "ACM Website project thumbnail",
+      link: "https://acmutd.co"
     },
     {
       slug: "acm-officer-database",
@@ -38,13 +39,15 @@ const Projects = () => {
       slug: "utd-grades",
       title: "UTD Grades",
       image: utdGradesImg,
-      imageAlt: "UTD Grades project thumbnail"
+      imageAlt: "UTD Grades project thumbnail",
+      link: "https://utdgrades.com"
     },
     {
       slug: "uxperience-echoes",
       title: "UXPerience: Echoes of Tomorrow",
       image: uxperienceImg,
-      imageAlt: "UXPerience project thumbnail"
+      imageAlt: "UXPerience project thumbnail",
+      link: "https://www.uxutd.com/design-a-thon"
     }
   ];
 
@@ -65,6 +68,7 @@ const Projects = () => {
             title={project.title}
             image={project.image}
             imageAlt={project.imageAlt}
+            link={project.link}
           />
         ))}
       </div>

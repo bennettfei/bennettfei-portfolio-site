@@ -1,4 +1,5 @@
 import React from 'react';
+import profileImg from '../assets/projects/me.png';
 
 const Hero = () => {
   const handleGetInTouch = () => {
@@ -18,7 +19,7 @@ const Hero = () => {
       <div className="relative animate-in">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/10 rounded-full blur-3xl" />
         <img
-          src="https://api.builder.io/api/v1/image/assets/TEMP/81a27313cb19efdbe985e47fec134b3b057cbb9a?width=484"
+          src={profileImg}
           alt="Bennett Feigenbaum Profile"
           className="relative w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full object-cover shadow-2xl ring-4 ring-primary/10 mb-12"
         />
