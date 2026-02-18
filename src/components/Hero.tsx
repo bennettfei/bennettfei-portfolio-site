@@ -1,4 +1,5 @@
 import React from 'react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 import profileImg from '../assets/projects/me.png';
 
 const Hero = () => {
@@ -14,6 +15,27 @@ const Hero = () => {
     window.open('#', '_blank');
   };
 
+  const socialLinks = [
+    {
+      name: 'GitHub',
+      icon: Github,
+      url: 'https://github.com/bennettfei',
+      ariaLabel: 'GitHub Profile'
+    },
+    {
+      name: 'LinkedIn',
+      icon: Linkedin,
+      url: 'https://linkedin.com/in/bennettfeigenbaum',
+      ariaLabel: 'LinkedIn Profile'
+    },
+    {
+      name: 'Email',
+      icon: Mail,
+      url: 'mailto:bdfeigenbaum005@gmail.com',
+      ariaLabel: 'Send Email'
+    }
+  ];
+
   return (
     <section id="home" className="relative flex flex-col items-center px-6 py-32 pt-40 min-h-screen justify-center">
       <div className="relative animate-in">
@@ -26,12 +48,29 @@ const Hero = () => {
       </div>
       
       <div className="max-w-4xl text-center animate-in" style={{ animationDelay: '0.1s' }}>
-        <h1 className="text-foreground text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-6 text-balance">
+        <h1 className="text-foreground text-3xl md:text-4xl lg:text-5xl font-extrabold leading-snug text-balance">
           My Name is
-          <span className="gradient-text block bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+          <span className="gradient-text block bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent ml-2 tracking-wide leading-snug overflow-visible">
             Bennett Feigenbaum
           </span>
         </h1>
+        <div className="flex gap-4 justify-center mt-3 mb-3">
+          {socialLinks.map((link) => {
+            const IconComponent = link.icon;
+            return (
+              <a
+                key={link.name}
+                href={link.url}
+                aria-label={link.ariaLabel}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground/60 hover:text-foreground transition-all duration-200 hover:scale-110"
+              >
+                <IconComponent size={24} />
+              </a>
+            );
+          })}
+        </div>
       </div>
       
       <div className="max-w-2xl text-center animate-in mb-12 mt" style={{ animationDelay: '0.2s' }}>

@@ -81,10 +81,10 @@ const Footer = () => {
             <EmailIcon />
           </div>
           <a 
-            href="mailto:bdf220000@utdallas.edu"
+            href="mailto:bdfeigenbaum005@gmail.com"
             className="text-foreground text-lg font-semibold hover:text-primary transition-colors"
           >
-            bdf220000@utdallas.edu
+            bdfeigenbaum005@gmail.com
           </a>
         </div>
       </div>
