@@ -1,91 +1,134 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Mail, ArrowUpRight } from 'lucide-react';
 
 const Footer = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
     setTimeout(() => {
-      setSubmitMessage('Thank you for your message! I\'ll get back to you soon.');
+      setSubmitMessage('Message sent — I\'ll be in touch soon.');
       setFormData({ name: '', email: '', message: '' });
       setIsSubmitting(false);
-      
-      // Clear success message after 5 seconds
       setTimeout(() => setSubmitMessage(''), 5000);
     }, 1000);
   };
 
-  const EmailIcon = () => (
-    <svg
-      width="17"
-      height="17"
-      viewBox="0 0 17 17"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="email-icon"
-    >
-      <path
-        d="M2.83744 3.09497H13.6696C14.3818 3.09497 14.9591 3.67232 14.9591 4.38451V12.1217C14.9591 12.8339 14.3818 13.4113 13.6696 13.4113H2.83744C2.12524 13.4113 1.5479 12.8339 1.5479 12.1217V4.38451C1.5479 3.67232 2.12524 3.09497 2.83744 3.09497Z"
-        stroke="white"
-        strokeWidth="0.884256"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M12.8956 5.1582L8.25329 8.76891L3.61095 5.1582"
-        stroke="white"
-        strokeWidth="0.884256"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-
   return (
-    <footer id="contact" className="w-full bg-surface/50 backdrop-blur-sm px-6 py-24 border-t border-border/50">
-      <div className="max-w-4xl mx-auto">
-        <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-extrabold uppercase text-foreground tracking-tight mb-4">
-            Contact
-          </h2>
-          <div className="w-20 h-1 bg-primary rounded-full" />
-        </div>
-        
-        <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-2xl">
-          I'm a multifaceted developer with experience in organizational,
-          startup, and nonprofit work environments. My background spans roles
-          in UX design, web development, data analytics, and marketing, where
-          I focus on creating impactful solutions that blend technology and
-          user needs.
-        </p>
-        
-        <div className="flex items-center gap-3 mb-12 group">
-          <div className="p-2 bg-accent rounded-lg group-hover:bg-primary transition-colors">
-            <EmailIcon />
-          </div>
-          <a 
-            href="mailto:bdfeigenbaum005@gmail.com"
-            className="text-foreground text-lg font-semibold hover:text-primary transition-colors"
+    <footer id="contact" className="w-full px-6 md:px-12 lg:px-16 py-32 border-t border-border/50">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+          {/* Left side */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
           >
-            bdfeigenbaum005@gmail.com
-          </a>
+            <p className="section-label mb-3">Get In Touch</p>
+            <h2 className="section-heading text-foreground text-4xl md:text-5xl font-bold mb-8">
+              Contact
+            </h2>
+            
+            <p className="text-muted-foreground text-sm leading-relaxed mb-10 max-w-md">
+              Interested in working together or just want to say hello? 
+              Feel free to reach out! I'm always open to new opportunities and conversations.
+            </p>
+            
+            <a 
+              href="mailto:bdfeigenbaum005@gmail.com"
+              className="inline-flex items-center gap-3 text-foreground text-sm font-medium hover:opacity-70 transition-opacity group"
+            >
+              <Mail className="w-4 h-4" />
+              bdfeigenbaum005@gmail.com
+              <ArrowUpRight className="w-3.5 h-3.5 text-muted-foreground group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </a>
+          </motion.div>
+
+          {/* Right side - form */}
+          <motion.form
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            onSubmit={handleSubmit}
+            className="space-y-5"
+          >
+            <div>
+              <label htmlFor="name" className="block text-xs font-medium tracking-[0.1em] uppercase text-muted-foreground mb-2">
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
+                required
+                className="w-full px-0 py-3 bg-transparent border-b border-border text-foreground text-sm placeholder-muted-foreground/50 focus:outline-none focus:border-foreground transition-colors"
+                placeholder="Your name"
+              />
+            </div>
+            
+            <div>
+              <label htmlFor="email" className="block text-xs font-medium tracking-[0.1em] uppercase text-muted-foreground mb-2">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                required
+                className="w-full px-0 py-3 bg-transparent border-b border-border text-foreground text-sm placeholder-muted-foreground/50 focus:outline-none focus:border-foreground transition-colors"
+                placeholder="your@email.com"
+              />
+            </div>
+            
+            <div>
+              <label htmlFor="message" className="block text-xs font-medium tracking-[0.1em] uppercase text-muted-foreground mb-2">
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
+                required
+                rows={4}
+                className="w-full px-0 py-3 bg-transparent border-b border-border text-foreground text-sm placeholder-muted-foreground/50 focus:outline-none focus:border-foreground resize-none transition-colors"
+                placeholder="What's on your mind?"
+              />
+            </div>
+            
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="mt-4 px-8 py-3 bg-foreground text-background text-sm font-medium rounded-full hover:opacity-90 transition-opacity disabled:opacity-50"
+            >
+              {isSubmitting ? 'Sending...' : 'Send Message'}
+            </button>
+            
+            {submitMessage && (
+              <p className="text-foreground/70 text-sm mt-3">{submitMessage}</p>
+            )}
+          </motion.form>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="mt-32 pt-8 border-t border-border/30 flex items-center justify-between">
+          <p className="text-muted-foreground text-xs">© 2023-2026 Bennett Feigenbaum. All rights reserved.</p>
+          <p className="text-muted-foreground text-xs">built with love, next.js, and energy drinks</p>
         </div>
       </div>
     </footer>

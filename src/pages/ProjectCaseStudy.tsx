@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { ArrowLeft } from 'lucide-react';
@@ -52,7 +53,7 @@ const projectData: Record<string, {
     outcome: 'The platform enabled thousands of data-driven decisions by giving UTD students clearer insight into course difficulty and grading fairness. Users reported feeling more confident in selecting classes, balancing semester workloads, and planning degree paths. The tool became a go-to resource for transparent academic decision-making.'
   },
   'uxperience-echoes': {
-    title: 'UXPerience: Echoes of Tomorrow (Event)',
+    title: 'UXperience: Echoes of Tomorrow (Event)',
     description: 'A fast-paced 24-hour UX design challenge where participants were tasked with imagining the future of digital experiences. The event brought together designers, developers, and product thinkers to rapidly ideate, prototype, and present forward-looking solutions.',
     image: uxperienceImg,
     challenge: 'Plan, design, and execute a hackathon-style event that encouraged deep creative thinking while maintaining structure, pacing, and engagement. This included defining a theme, coordinating logistics, supporting cross-functional teams, and ensuring participants had the guidance and resources needed to explore “future-state” user experiences.',
@@ -65,64 +66,81 @@ const ProjectCaseStudy = () => {
   const { slug } = useParams<{ slug: string }>();
   const project = slug ? projectData[slug] : null;
 
+  useEffect(() => {
+    // Ensure the case study view starts at the top when navigating
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [slug]);
+
   if (!project) {
     return (
       <div className="w-full min-h-screen bg-background">
         <Header />
-        <main className="pt-32 px-6 md:px-12 lg:px-32 max-w-[1400px] mx-auto">
-          <h1 className="text-4xl font-bold text-foreground mb-4">Project Not Found</h1>
-          <Link to="/" className="text-primary hover:underline">Return Home</Link>
+        <main className="pt-32 px-6 md:px-12 lg:px-16 max-w-6xl mx-auto">
+          <h1 className="section-heading text-4xl font-bold text-foreground mb-4">Project Not Found</h1>
+          <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors text-sm">← Return Home</Link>
         </main>
         <Footer />
       </div>
     );
   }
 
+  const sections = [
+    { label: 'Overview', content: project.description },
+    { label: 'The Challenge', content: project.challenge },
+    { label: 'The Solution', content: project.solution },
+    { label: 'The Outcome', content: project.outcome },
+  ];
+
   return (
     <div className="w-full min-h-screen bg-background">
       <Header />
       
-      <main className="pt-32 px-6 md:px-12 lg:px-32 pb-24 max-w-[1400px] mx-auto">
-        <Link 
-          to="/#projects" 
-          className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8"
+      <main className="pt-28 pb-24 px-6 md:px-12 lg:px-16 max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
         >
-          <ArrowLeft className="w-4 h-4" />
-          Back to Projects
-        </Link>
+          <Link 
+            to="/" 
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm mb-12"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back
+          </Link>
 
-        <h1 className="text-4xl md:text-5xl font-extrabold uppercase tracking-tight mb-6 gradient-text">
-          {project.title}
-        </h1>
+          <p className="section-label mb-3">Case Study</p>
+          <h1 className="section-heading text-foreground text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-12">
+            {project.title}
+          </h1>
+        </motion.div>
 
-        <div className="mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mb-20"
+        >
           <img 
             src={project.image} 
             alt={project.title}
-            className="w-full h-[400px] object-cover rounded-2xl shadow-lg"
+            className="w-full aspect-video object-cover rounded-xl"
           />
-        </div>
+        </motion.div>
 
-        <div className="prose prose-lg max-w-none">
-          <section className="mb-12">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Overview</h2>
-            <p className="text-muted-foreground leading-relaxed">{project.description}</p>
-          </section>
-
-          <section className="mb-12">
-            <h2 className="text-2xl font-bold text-foreground mb-4">The Challenge</h2>
-            <p className="text-muted-foreground leading-relaxed">{project.challenge}</p>
-          </section>
-
-          <section className="mb-12">
-            <h2 className="text-2xl font-bold text-foreground mb-4">The Solution</h2>
-            <p className="text-muted-foreground leading-relaxed">{project.solution}</p>
-          </section>
-
-          <section className="mb-12">
-            <h2 className="text-2xl font-bold text-foreground mb-4">The Outcome</h2>
-            <p className="text-muted-foreground leading-relaxed">{project.outcome}</p>
-          </section>
+        <div className="max-w-3xl">
+          {sections.map((section, i) => (
+            <motion.section
+              key={section.label}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
+              className="mb-16"
+            >
+              <p className="section-label mb-3">{section.label}</p>
+              <p className="text-foreground/80 text-base leading-relaxed">{section.content}</p>
+            </motion.section>
+          ))}
         </div>
       </main>
 

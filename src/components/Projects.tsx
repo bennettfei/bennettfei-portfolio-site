@@ -44,9 +44,9 @@ const Projects = () => {
     },
     {
       slug: "uxperience-echoes",
-      title: "UXPerience: Echoes of Tomorrow",
+      title: "UXperience: Echoes of Tomorrow",
       image: uxperienceImg,
-      imageAlt: "UXPerience project thumbnail",
+      imageAlt: "UXperience project thumbnail",
       link: "https://www.uxutd.com/design-a-thon"
     }
   ];
@@ -67,6 +67,7 @@ const Projects = () => {
             slug={project.slug}
             title={project.title}
             image={project.image}
+            imageUrl={project.image}
             imageAlt={project.imageAlt}
             link={project.link}
           />

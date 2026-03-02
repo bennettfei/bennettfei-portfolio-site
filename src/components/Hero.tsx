@@ -1,5 +1,6 @@
 import React from 'react';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowDown } from 'lucide-react';
+import { motion } from 'framer-motion';
 import profileImg from '../assets/projects/me.png';
 
 const Hero = () => {
@@ -7,6 +8,13 @@ const Hero = () => {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleScrollToProjects = () => {
+    const projectsSection = document.getElementById('projects');
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -37,8 +45,21 @@ const Hero = () => {
   ];
 
   return (
-    <section id="home" className="relative flex flex-col items-center px-6 py-32 pt-40 min-h-screen justify-center">
-      <div className="relative animate-in">
+    <section id="home" className="relative flex flex-col items-center justify-center px-6 min-h-screen">
+      {/* Subtle grid background */}
+      <div className="absolute inset-0 opacity-[0.03]" style={{
+        backgroundImage: 'linear-gradient(hsl(0 0% 98%) 1px, transparent 1px), linear-gradient(90deg, hsl(0 0% 98%) 1px, transparent 1px)',
+        backgroundSize: '60px 60px'
+      }} />
+
+      <div className="relative z-10 max-w-4xl mx-auto text-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-12"
+        >
+        <div className ="relative inline-block">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/10 rounded-full blur-3xl" />
         <img
           src={profileImg}
@@ -46,15 +67,27 @@ const Hero = () => {
           className="relative w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full object-cover shadow-2xl ring-4 ring-primary/10 mb-12"
         />
       </div>
+      </motion.div>
       
-      <div className="max-w-4xl text-center animate-in" style={{ animationDelay: '0.1s' }}>
-        <h1 className="text-foreground text-3xl md:text-4xl lg:text-5xl font-extrabold leading-snug text-balance">
-          My Name is
-          <span className="gradient-text block bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent ml-2 tracking-wide leading-snug overflow-visible">
-            Bennett Feigenbaum
-          </span>
-        </h1>
-        <div className="flex gap-4 justify-center mt-3 mb-3">
+      <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text- text-m md:text-l lg:text-xl font-extrabold leading-snug text-balance"
+        >
+          Hey, I'm
+        </motion.p>
+        
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="section-heading text-3xl md:text-4xl lg:text-5xl font-bold leading-[0.95] gradient-text block bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent ml-2 tracking-wide leading-snug overflow-visible"
+        >
+          Bennett Feigenbaum
+        </motion.h1>
+        
+        <div className="flex gap-4 justify-center mt-4 mb-4">
           {socialLinks.map((link) => {
             const IconComponent = link.icon;
             return (
@@ -71,34 +104,55 @@ const Hero = () => {
             );
           })}
         </div>
-      </div>
-      
-      <div className="max-w-2xl text-center animate-in mb-12 mt" style={{ animationDelay: '0.2s' }}>
-        <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+        
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-12"
+        >
           I'm a multifaceted developer with experience in organizational,
           startup, and nonprofit work environments. My background spans roles
           in UX design, web development, data analytics, and marketing, where
           I focus on creating impactful solutions that blend technology and
           user needs.
-        </p>
-      </div>
-      
-      <div className="flex flex-wrap justify-center gap-4 animate-in" style={{ animationDelay: '0.3s' }}>
-        <button
-          onClick={handleGetInTouch}
-          className="px-8 py-4 rounded-full bg-primary text-primary-foreground font-semibold text-base hover:scale-105 hover:shadow-lg transition-all duration-300"
+        </motion.p>
+        
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="flex flex-wrap justify-center gap-4"
         >
-          Get In Touch
-        </button>
-        {/*
           <button
-          onClick={handleDownloadCV}
-          className="px-8 py-4 rounded-full border-2 border-primary bg-transparent text-foreground font-semibold text-base hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all duration-300"
-        >
-          Download CV
-        </button>
-       */}
+            onClick={handleGetInTouch}
+            className="px-8 py-3.5 rounded-full bg-foreground text-background font-medium text-sm hover:opacity-90 transition-opacity"
+          >
+            Get In Touch
+          </button>
+          <button
+            onClick={handleScrollToProjects}
+            className="px-8 py-3.5 rounded-full border border-border text-foreground font-medium text-sm hover:bg-accent transition-colors"
+          >
+            View Work
+          </button>
+        </motion.div>
       </div>
+        {/* Scroll indicator */}
+      <motion.button
+        onClick={handleScrollToProjects}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2 }}
+        className="absolute bottom-12 text-muted-foreground hover:text-foreground transition-colors"
+      >
+          <motion.div
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          >
+          <ArrowDown className="w-5 h-5" />
+        </motion.div>
+      </motion.button>
     </section>
   );
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 interface ExperienceCardProps {
   company: string;
@@ -16,30 +17,35 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
   logo
 }) => {
   return (
-    <article className="group relative bg-card rounded-2xl p-8 border border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-xl">
-      <div className="flex items-start gap-6">
+    <motion.article
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="group relative border-l border-border pl-8 pb-2"
+    >
+      <div className="absolute left-0 top-1 w-2 h-2 rounded-full bg-muted-foreground -translate-x-[4.5px] group-hover:bg-foreground transition-colors" />
+      
+      <div className="flex items-center gap-3 mb-1">
         {logo && (
-          <div className="flex-shrink-0 w-12 h-12 bg-surface-elevated rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+          <div className="w-8 h-8 flex items-center justify-center opacity-70 group-hover:opacity-100 transition-opacity">
             {logo}
           </div>
         )}
-        
-        <div className="flex-1">
-          <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4 gap-2">
-            <h3 className="text-foreground text-2xl font-bold group-hover:text-primary transition-colors">
-              {position} <span className="text-muted-foreground">@</span> {company}
-            </h3>
-            <time className="text-muted-foreground text-sm font-medium px-4 py-1.5 bg-accent rounded-full whitespace-nowrap">
-              {duration}
-            </time>
-          </div>
-          
-          <p className="text-muted-foreground leading-relaxed">
-            {description}
-          </p>
-        </div>
+        <span className="text-xs font-medium tracking-[0.1em] uppercase text-muted-foreground">
+          {duration}
+        </span>
       </div>
-    </article>
+      
+      <h3 className="text-foreground text-xl font-semibold tracking-tight mb-1">
+        {position}
+      </h3>
+      <p className="text-muted-foreground text-sm font-medium mb-3">{company}</p>
+      
+      <p className="text-muted-foreground text-sm leading-relaxed max-w-2xl">
+        {description}
+      </p>
+    </motion.article>
   );
 };
 
