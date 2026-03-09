@@ -35,7 +35,7 @@ const Footer = () => {
             transition={{ duration: 0.6 }}
           >
             <p className="section-label mb-3">Get In Touch</p>
-            <h2 className="section-heading text-foreground text-4xl md:text-5xl font-bold mb-8">
+            <h2 className="section-heading text-5xl md:text-6xl lg:text-7xl font-bold leading-[0.95] gradient-text block bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
               Contact
             </h2>
             
@@ -128,7 +128,7 @@ const Footer = () => {
         {/* Bottom bar */}
         <div className="mt-32 pt-8 border-t border-border/30 flex items-center justify-between">
           <p className="text-muted-foreground text-xs">© 2023-2026 Bennett Feigenbaum. All rights reserved.</p>
-          <p className="text-muted-foreground text-xs">built with love, next.js, and energy drinks</p>
+          <p className="text-muted-foreground text-xs"></p>
         </div>
       </div>
     </footer>

@@ -73,7 +73,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text- text-m md:text-l lg:text-xl font-extrabold leading-snug text-balance"
+          className="text- text-xl md:text-2xl lg:text-3xl font-extrabold leading-snug text-balance"
         >
           Hey, I'm
         </motion.p>
@@ -82,9 +82,9 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="section-heading text-3xl md:text-4xl lg:text-5xl font-bold leading-[0.95] gradient-text block bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent ml-2 tracking-wide leading-snug overflow-visible"
+          className="section-heading text-5xl md:text-6xl lg:text-7xl font-bold leading-[0.95] gradient-text block bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent ml-2 tracking-wide leading-snug overflow-visible"
         >
-          Bennett Feigenbaum
+          Bennett!
         </motion.h1>
         
         <div className="flex gap-4 justify-center mt-4 mb-4">
@@ -112,7 +112,7 @@ const Hero = () => {
           className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-12"
         >
           I'm a multifaceted developer with experience in organizational,
-          startup, and nonprofit work environments. My background spans roles
+          corporate, and nonprofit work environments. My background spans roles
           in UX design, web development, data analytics, and marketing, where
           I focus on creating impactful solutions that blend technology and
           user needs.

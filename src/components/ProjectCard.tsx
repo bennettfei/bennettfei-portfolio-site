@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import { Link as LinkIcon } from 'lucide-react';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 
 interface ProjectCardProps {
   slug: string;
@@ -31,23 +32,32 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ slug, title, imageUrl, imageA
             />
             <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60" />
           </div>
-          <div className="p-5 flex items-center justify-between">
-            {link ? (
-              <a
-                href={link}
-                onClick={(e) => e.stopPropagation()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-foreground text-sm md:text-base font-semibold tracking-tight hover:underline"
-              >
-                {title}
-              </a>
-            ) : (
+          <div className="p-5">
+            <div className="flex items-center gap-2">
               <h3 className="text-foreground text-sm md:text-base font-semibold tracking-tight">
                 {title}
               </h3>
-            )}
-            <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-foreground group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+              {link ? (
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <a
+                      href={link}
+                      onClick={(e) => e.stopPropagation()}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-foreground hover:text-muted-foreground hover:bg-muted/50 hover:scale-100 transition-all duration-300 flex-shrink-0 rounded p-1 -m-1"
+                    >
+                      <LinkIcon className="w-4 h-4" />
+                    </a>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>check this out!</p>
+                  </TooltipContent>
+                </Tooltip>
+              ) : (
+                <LinkIcon className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+              )}
+            </div>
           </div>
         </article>
       </Link>

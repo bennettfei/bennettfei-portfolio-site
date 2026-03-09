@@ -4,15 +4,17 @@ import Hero from '@/components/Hero';
 import Projects from '@/components/Projects';
 import Experience from '@/components/Experience';
 import Footer from '@/components/Footer';
+import { usePageTitle } from '@/hooks/usePageTitle';
 
 const Index = () => {
+  usePageTitle('Bennett Feigenbaum');
   return (
     <div className="w-full min-h-screen relative overflow-x-hidden bg-background">
       <Header />
       <main>
         <Hero />
-        <Projects />
         <Experience />
+        <Projects />
       </main>
       <Footer />
     </div>
