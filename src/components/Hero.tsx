@@ -1,7 +1,7 @@
 import React from 'react';
 import { Github, Linkedin, Mail, ArrowDown } from 'lucide-react';
 import { motion } from 'framer-motion';
-import profileImg from '../assets/projects/me.png';
+import profileImg from '../assets/projects/me.jpg';
 
 const Hero = () => {
   const handleGetInTouch = () => {
@@ -46,12 +46,6 @@ const Hero = () => {
 
   return (
     <section id="home" className="relative flex flex-col items-center justify-center px-6 min-h-screen">
-      {/* Subtle grid background */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{
-        backgroundImage: 'linear-gradient(hsl(0 0% 98%) 1px, transparent 1px), linear-gradient(90deg, hsl(0 0% 98%) 1px, transparent 1px)',
-        backgroundSize: '60px 60px'
-      }} />
-
       <div className="relative z-10 max-w-4xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -60,11 +54,11 @@ const Hero = () => {
           className="mt-12"
         >
         <div className ="relative inline-block">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/10 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-300/20 to-orange-300/10 rounded-full blur-3xl" />
         <img
           src={profileImg}
           alt="Bennett Feigenbaum Profile"
-          className="relative w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full object-cover shadow-2xl ring-4 ring-primary/10 mb-12"
+          className="relative w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full object-cover shadow-2xl ring-4 ring-orange-300/10 mb-12"
         />
       </div>
       </motion.div>

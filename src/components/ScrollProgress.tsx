@@ -1,0 +1,33 @@
+import React, { useEffect, useState } from 'react';
+
+const ScrollProgress = () => {
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const updateScrollProgress = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      setScrollProgress(scrollPercent);
+    };
+
+    window.addEventListener('scroll', updateScrollProgress);
+    updateScrollProgress();
+
+    return () => window.removeEventListener('scroll', updateScrollProgress);
+  }, []);
+
+  return (
+    <div className="fixed top-0 left-0 w-full h-0.5 bg-muted z-[60] overflow-hidden">
+      <div
+        className="h-full transition-all duration-150 ease-out"
+        style={{
+          width: `${scrollProgress}%`,
+          backgroundImage: 'var(--gradient-text)'
+        }}
+      />
+    </div>
+  );
+};
+
+export default ScrollProgress;

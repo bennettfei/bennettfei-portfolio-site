@@ -43,7 +43,7 @@ const Projects = () => {
       link: "https://utdgrades.com",
       category: "software"
     },
-    {
+    /*{
       slug: "airfrance-sem",
       title: "AirFrance SEM Case Study",
       image: airFranceImg,
@@ -57,7 +57,7 @@ const Projects = () => {
       imageAlt: "UXperience project thumbnail",
       link: "https://www.uxutd.com/design-a-thon",
       category: "marketing"
-    }
+    }*/
   ];
 
   // Group projects by category
@@ -71,7 +71,7 @@ const Projects = () => {
   }, {} as Record<string, typeof projects>);
 
   const categoryTitles = {
-    software: 'UX & Software Engineering',
+    software: 'Current Projects', // Calling it current projects because that's true for now.
     marketing: 'Marketing',
   };
 
