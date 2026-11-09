@@ -48,16 +48,16 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="mt-12"
         >
-        <div className ="relative inline-block">
-        <div className="absolute inset-0 bg-gradient-to-br from-orange-300/20 to-orange-300/10 rounded-full blur-3xl" />
-        <img
-          src={profileImg}
-          alt="Bennett Feigenbaum Profile"
-          className="relative w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full object-cover shadow-2xl ring-4 ring-orange-300/10 mb-12"
-        />
-      </div>
-      </motion.div>
-      
+          <div className="relative inline-block">
+            <div className="absolute inset-0 bg-gradient-to-br from-orange-300/20 to-orange-300/10 rounded-full blur-3xl" />
+            <img
+              src={profileImg}
+              alt="Bennett Feigenbaum Profile"
+              className="relative w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full object-cover shadow-2xl ring-4 ring-orange-300/10 mb-12"
+            />
+          </div>
+        </motion.div>
+
       <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
