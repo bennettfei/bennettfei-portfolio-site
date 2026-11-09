@@ -166,7 +166,7 @@ const ProjectCaseStudy = () => {
         <div className="max-w-3xl">
           {sections.map((section, i) => (
             <motion.section
-              key={section.label}
+              key={i}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}

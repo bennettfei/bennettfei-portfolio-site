@@ -7,9 +7,9 @@ const Experience = () => {
   const experiences = [
     {
       company: "Safran Helicopter Engines",
-      position: "Analyst Intern",
-      duration: "May 2026 — Aug 2026",
-      description: "Incoming intern for Summer 2026.",
+      position: "Business Data Analyst Intern",
+      duration: "May 2026 — Dec 2026",
+      description: "Intern within the Customer Support department leveraging data analysis, automation, and systems design skills to build and justify scalable, user-friendly solutions that streamline in-house operations, simplify workflows, support customer-facing sales, and improve data-driven decision-making across regional teams.",
       logo: null
     },
     {

@@ -26,8 +26,8 @@ const Index = () => {
         <main>
           <Hero />
           <Experience />
-          <Clubs />
           <Projects />
+          <Clubs />
         </main>
         <Footer />
       </div>

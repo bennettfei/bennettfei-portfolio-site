@@ -1,7 +1,8 @@
 import React from 'react';
-import { Github, Linkedin, Mail, ArrowDown } from 'lucide-react';
+import { Github, Linkedin, ArrowDown } from 'lucide-react';
 import { motion } from 'framer-motion';
 import profileImg from '../assets/projects/me.jpg';
+import Skills from './Skills';
 
 const Hero = () => {
   const handleGetInTouch = () => {
@@ -36,12 +37,6 @@ const Hero = () => {
       url: 'https://linkedin.com/in/bennettfeigenbaum',
       ariaLabel: 'LinkedIn Profile'
     },
-    {
-      name: 'Email',
-      icon: Mail,
-      url: 'mailto:bdfeigenbaum005@gmail.com',
-      ariaLabel: 'Send Email'
-    }
   ];
 
   return (
@@ -103,34 +98,14 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-12"
+          className="text-muted-foreground text-base md:text-m leading-relaxed max-w-xl mx-auto mb-12"
         >
-          I'm a multifaceted developer with experience in organizational,
-          corporate, and nonprofit work environments. My background spans roles
-          in UX design, web development, data analytics, and marketing, where
-          I focus on creating impactful solutions that blend technology and
-          user needs.
+          Senior @ UT Dallas studying Computer Information Systems & Technology.<br></br> 
+          I utilize my experience in analytics & design to transform complex business problems into clear solutions.
         </motion.p>
+
+        <Skills />
         
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="flex flex-wrap justify-center gap-4"
-        >
-          <button
-            onClick={handleGetInTouch}
-            className="px-8 py-3.5 rounded-full bg-foreground text-background font-medium text-sm hover:opacity-90 transition-opacity"
-          >
-            Get In Touch
-          </button>
-          <button
-            onClick={handleScrollToProjects}
-            className="px-8 py-3.5 rounded-full border border-border text-foreground font-medium text-sm hover:bg-accent transition-colors"
-          >
-            View Work
-          </button>
-        </motion.div>
       </div>
         {/* Scroll indicator */}
       <motion.button

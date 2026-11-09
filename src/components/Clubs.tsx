@@ -16,7 +16,7 @@ const Clubs = () => {
     {
       name: "UX Club at UTD",
       role: "Web Developer & Officer",
-      duration: "July 2025 — Present",
+      duration: "July 2025 — May 2026",
       description: "Web Developer for the UX Club dedicated to promoting the design community at UTD. I lead the development and maintenance of the club's website, ensuring it effectively showcases our events, resources, and projects to our members and the broader UTD community.",
       logo: uxclubLogo
     },
@@ -33,7 +33,7 @@ const Clubs = () => {
       >
         <p className="section-label mb-3">Involvement</p>
         <h2 className="text-4xl md:text-5xl font-extrabold uppercase tracking-tight mb-4 gradient-text">
-          Clubs & Organizations
+          Clubs & Organizations!
         </h2>
       </motion.div>
       

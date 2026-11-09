@@ -129,6 +129,43 @@ All colors MUST be HSL.
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+
+  .skills-marquee {
+    overflow: hidden;
+  }
+
+  .skills-marquee-track {
+    animation: skills-marquee 55s linear infinite;
+  }
+
+  .skills-marquee:hover .skills-marquee-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes skills-marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .skills-marquee {
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .skills-marquee::-webkit-scrollbar {
+      display: none;
+    }
+
+    .skills-marquee-track {
+      animation: none;
+    }
+
+    .skills-marquee-track > ul[aria-hidden="true"] {
+      display: none;
+    }
+  }
   
   @keyframes fadeIn {
     from {
